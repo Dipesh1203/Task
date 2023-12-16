@@ -24,8 +24,13 @@ document.addEventListener("DOMContentLoaded", function () {
   check.addEventListener("click", () => {
     if (!(input1.value.trim() === "" && input2.value.trim() === "")) {
       let paragraph = document.createElement("p");
+      if (input2.value > input1.value && operator == "-") {
+        paragraph.innerText = `Invalid operation`;
+        form.appendChild(paragraph);
+        return console.log();
+      }
       if (input2.value == 0 && operator == "/") {
-        paragraph.innerText = `Denominator Should Not be Zero`;
+        paragraph.innerText = `Division by zero is not allowed`;
         form.appendChild(paragraph);
         return console.log();
       }
